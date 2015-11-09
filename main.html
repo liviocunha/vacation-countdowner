@@ -1,62 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DAYS 2 WINTER</title>
+    <title>THE MIGHTY COUNTDOWNER</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#72CAE6">
-    <meta name="description" content="How many days until the next winter break? Find out!">
-    <meta name="author" content="Linus Lee">
-    <link rel="apple-touch-icon" href="/d2s/touch.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/d2s/favicon.ico">
+    <meta name="theme-color" content="#72CAE6"> <!-- This color could be changed to match the theme -->
     <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
-    <style>
-      html,body,div,iframe,p{margin:0;padding:0}h1,h2,h3{font-weight:normal}img{border:0}
-      body{font-family:"Righteous",sans-serif;}
-      #scripts{display:none}
-      #content{text-align:center;padding:5%;padding:5vh}
-      #countdown{
-        font-size:7vw;
-        color:#72CAE6;
-        height:80vh;
-        line-height:65vh;
-      }
-      #footer{
-        position:fixed;
-        width:70vw;
-        bottom:5vh;
-        left:15vw;
-        color:#888;
-        line-height:1.7em;
-      }
-      #countbar{
-        position:fixed;
-        top:0;
-        left:0;
-        width:0px;
-        transition:width 0.4s;
-        height:30px;
-        font-size:20px;
-        line-height:30px;
-        background:#72CAE6;
-        border-radius:0 7px 7px 0;
-        color:white;
-        text-align:center;
-      }
-      @media screen and (max-width:380px), screen and (max-height:330px){
-      #footer>:first-child{
-        display:none;
-      }}
-    </style>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','gaTracker');
-      
-      gaTracker('create', 'UA-61182692-1', 'auto');
-      gaTracker('send', 'pageview');
-    </script>
+    <!-- Warning: above line contains unnecessary fanciness -->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
     <div id="countbar">
@@ -66,55 +17,9 @@
         Starting...!
       </div>
       <div id="footer">
-        <p style="margin-bottom:20px;max-width:785px;margin-left:auto;margin-right:auto">Days2Winter shows the exactly number of days, hours, minutes and seconds -- yes, <i>seconds</i> -- remaining until you can walk out that school front door for a good winter break this Christmas season. Good luck!</p>
-        <p>Days2Winter is created and hosted by Linus Lee</p>
+        <p style="margin-bottom:20px;max-width:785px;margin-left:auto;margin-right:auto">This Counter counts down to a specified date. Created by @thesephist, source code available at github.com/thesephist/vacation-countdowner</p>
       </div>
     </div>
-    <div class="scripts">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script>
-        var target_date = new Date("Dec 21, 2015 ").getTime();
-	
-        // variables for time units
-        var days, hours, minutes, seconds;
-	
-        // get tag element
-        var countdown = document.getElementById("countdown");
-        var countbar = document.getElementById("countbar");
-	
-        // update the tag with id "countdown" every 1 second
-        function maxi(){
-        clearInterval(inx);
-        countbar.innerText = "ALL DONE!!!";
-        countdown.innerHTML = "IT'S CHRISTMAS!";
-        }
-        var inx = setInterval(function () {
-	
-        // find the amount of "seconds" between now and target
-        var current_date = new Date().getTime();
-        var seconds_left = (target_date - current_date) / 1000 + 55200;
-
-        if(seconds_left<=0){maxi()}
-	
-        countbar.style.width = ((24796800 - seconds_left) / 24796800 * 100) + "%";
-        countbar.innerText = parseInt(countbar.style.width) + "% there!";
-
-        // do some time calculations
-        days = parseInt(seconds_left / 86400);
-        seconds_left = seconds_left % 86400;
-	
-        hours = parseInt(seconds_left / 3600);
-        seconds_left = seconds_left % 3600;
-	
-        minutes = parseInt(seconds_left / 60);
-        seconds = parseInt(seconds_left % 60);
-
-        // format countdown string + set tag value
-        countdown.innerHTML = days + "Days " + hours + "h "
-        + minutes + "m " + seconds + "s";  
-	
-        }, 1000);
-      </script>
-    </div>
+    <script src="counter.js"></script>
   </body>
 </html>

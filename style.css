@@ -1,0 +1,41 @@
+/* Mini CSS Resets */
+html,body,div,iframe,p {margin :0;padding :0}h1,h2,h3 {font-weight :normal}img {border :0}
+
+body {font-family :"Righteous",sans-serif;}
+
+#content {text-align :center;padding :5%;padding :5vh}
+
+#countdown {
+    font-size :7vw;
+    color :#72CAE6;
+    height :80vh;
+    line-height :65vh;
+}
+#footer {
+    position :fixed;
+    width :70vw;
+    bottom :5vh;
+    left :15vw;
+    color :#888;
+    line-height :1.7em;
+}
+#countbar {
+    position :fixed;
+    top :0;
+    left :0;
+    width :0px;
+    transition :width 0.4s;
+    height :30px;
+    font-size :20px;
+    line-height :30px;
+    background :#72CAE6;
+    border-radius :0 7px 7px 0;
+    color :white;
+    text-align :center;
+}
+@media screen and (max-width :380px), screen and (max-height :330px) {
+    #footer> :first-child {
+        display :none;
+    }
+}
+
